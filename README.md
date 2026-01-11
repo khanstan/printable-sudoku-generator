@@ -16,7 +16,3 @@ PowerShell / command line:
 python -m http.server 8000
 # or with npm http-server (if installed)
 npx http-server -p 8000
-```
-
-Open `http://localhost:8000` in your browser.
-
