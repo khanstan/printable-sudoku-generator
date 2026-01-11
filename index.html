@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Printable Sudoku Generator</title>
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
+    <link href="styles.css" rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Merriweather:wght@400;700&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <header class="app-header">
+        <h1>Printable Sudoku Generator</h1>
+        <p class="tag">Press <kbd>G</kbd> to generate, <kbd>P</kbd> to print</p>
+    </header>
+
+    <main class="app-main">
+        <section class="controls">
+            <label for="template">Template:</label>
+            <select id="template">
+                <option value="single">Single difficulty</option>
+                <option value="variety">Variety Pack (2 easy, 2 medium, 2 hard)</option>
+                <option value="progressive">Progressive (2 easy, 2 medium, 1 hard, 1 expert)</option>
+                <option value="challenge">Challenge (1 medium, 2 hard, 3 expert)</option>
+                <option value="beginner">Beginner Friendly (4 easy, 2 medium)</option>
+            </select>
+
+            <div class="single-difficulty-controls">
+                <label for="difficulty">Difficulty:</label>
+                <select id="difficulty">
+                    <option value="easy">Easy</option>
+                    <option value="medium" selected>Medium</option>
+                    <option value="hard">Hard</option>
+                    <option value="expert">Expert</option>
+                </select>
+                <label for="perPage">Count:</label>
+                <select id="perPage">
+                    <option value="6" selected>6 puzzles</option>
+                    <option value="4">4 puzzles</option>
+                    <option value="1">1 puzzle</option>
+                </select>
+            </div>
+
+            <button id="generate" aria-label="Generate puzzles (keyboard shortcut: G)">Generate</button>
+            <button id="print" aria-label="Print puzzles (keyboard shortcut: P)">Print</button>
+
+            <div class="controls-row">
+                <label class="toggle">
+                    <input type="checkbox" id="toggleSolution">
+                    <span class="toggle-ui" aria-hidden="true"></span>
+                    <span class="toggle-text">Show solutions</span>
+                </label>
+            </div>
+
+            <label class="toggle">
+                <input type="checkbox" id="toggleSolutionsPage">
+                <span class="toggle-ui" aria-hidden="true"></span>
+                <span class="toggle-text">Print solutions on 2nd page</span>
+            </label>
+
+        </section>
+
+        <div id="ariaLive" class="sr-only" role="status" aria-live="polite" aria-atomic="true"></div>
+
+        <section id="bankDisplay" class="bank-display grid-2x3" aria-label="Generated puzzles"></section>
+        <section id="solutionsDisplay" class="solutions-display" aria-label="Solutions (print only)"></section>
+    </main>
+
+    <footer class="app-footer"></footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
